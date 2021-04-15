@@ -1,0 +1,286 @@
+<!doctype html>
+
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+
+  <title>9ja Covid Appilcation</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/core-img/favicon.png">
+
+  <!-- Plugins css -->
+  <link href="{% static "assets/css/jqvmap.min.css"%}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static "css/default-assets/jquery.jConveyorTicker.min.css"%}">
+  <link href="{% static "assets/css/datatables.min.css"%}" rel="stylesheet" />
+  <link href="{% static "assets/css/select2.min.css"%}" rel="stylesheet" />
+
+  <!-- Master Stylesheet CSS -->
+  <link rel="stylesheet" href="{% static "style.css"%}">
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="loading-area">
+    <div class="loading-box"></div>
+    <div class="loading-pic">
+      <div class="loader-animation-outer">
+        <div class="rotate-center">
+          <div class="scale-up-center">
+            <img src="img/core-img/corona.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Preloader -->
+
+  <!-- ======================================
+    ******* Main Page Wrapper Area **********
+    ======================================= -->
+  <div class="page-wrapper">
+    <div class="horizontal-menu">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+        <div class="container-fluid">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo" href="index.html"><img src="{% static "img/core-img/logo.png"%}" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{% static "img/core-img/small-logo.png"%}" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <span class="ti-menu"></span>
+            </button>
+          </div>
+          <div class="preheader-area d-none d-lg-block">
+            <div class="preheader-content-wrap d-flex align-items-center">
+              <h6 class="mb-0 mr-4 text-white">Help ( Poor people) and donate us</h6>
+              <a href="#" class="btn btn-default">Donate</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+
+    <!-- Main Page Area -->
+    <div class="main-page-content">
+      <div class="dashboard-area">
+        <div class="container-fluid">
+          <div class="row align-items-center mb-30">
+            <div class="col-12">
+              <div class="page-title-box d-flex align-items-center justify-content-between">
+                <h4 class="mb-2 font-20">9ja COVID-19 Coronavirus Tracker</h4>
+              </div>
+              <div class="dashboard-infor-mation">
+                <div class="dashboard-clock d-flex flex-wrap align-items-center">
+                  <div id="dashboardDate"></div> <span class="ml-1"> : </span>
+                  <ul class="d-flex align-items-center justify-content-end ml-2">
+                    <li id="hours"></li>
+                    <li>:</li>
+                    <li id="min"></li>
+                    <li>:</li>
+                    <li id="sec"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="currency-marquee-area js-conveyor-1 mb-30">
+                <ul class="bg-gradient-dark">
+                  <li>Today death - 15,056, Today Cases - 33,456</li>
+                  <li>Vaccines and diseases.</li>
+                  <li>Concerns over reuse of protective medical kit.</li>
+                  <li>WHO policy recommendations.</li>
+                  <li>National programmes and systems.</li>
+                  <li>Monitoring and surveillance, Quality, safety and standards.</li>
+                  <li>During this challenging period, the Measles &amp; Rubella Initiative (M&amp;RI) expresses solidarity with families, communities, governments and emergency responders and joins.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+
+            <!-- Category -->
+            <div class="col-lg-12">
+              <div class="row worldwide-stats">
+                <div class="col-md-3">
+                  <div class="card mb-30 bg-primary">
+                    <div class="card-body">
+                      <div class="tracker-block__icon">
+                        <img src="{% static "img/bg-img/1.png"%}" alt="icon" />
+                      </div>
+                      <div class="corona-count-content">
+                        <h4 class="text-white">Coronavirus Cases</h4>
+                        <h2 class="text-white"><span class="cases-no infected">{{data.data.totalConfirmedCases}}</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card mb-30 bg-success">
+                    <div class="card-body">
+                      <div class="tracker-block__icon">
+                        <img src="{% static "img/bg-img/4.png"%}" alt="icon" />
+                      </div>
+                      <div class="corona-count-content">
+                        <h4 class="text-white">Total Recovered</h4>
+                        <h2 class="text-white"><span class="cases-no recovered">{{data.data.discharged}}</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card mb-30 bg-danger">
+                    <div class="card-body">
+                      <div class="tracker-block__icon">
+                        <img src="{% static "img/bg-img/2.png"%}" alt="icon" />
+                      </div>
+                      <div class="corona-count-content">
+                        <h4 class="text-white">Total Death</h4>
+                        <h2 class="text-white"><span class="cases-no deaths">{{data.data.death}}</span>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card mb-30 bg-warning">
+                    <div class="card-body">
+                      <div class="tracker-block__icon">
+                        <img src="{% static "img/bg-img/3.png"%}" alt="icon" />
+                      </div>
+                      <div class="corona-count-content">
+                        <h4 class="text-white">Active Cases</h4>
+                        <h2 class="text-white"><span class="cases-no current_cases">{{data.data.totalActiveCases}}</span></h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-12">
+              <div class="card box-margin">
+                <div class="card-body">
+                  <h4 class="card-title">9ja Coronavirus Outbreak</h4>
+                  <div class="list-view table-responsive" id="list-view">
+                    <table class="list-view__table display table">
+                      <thead class="list-view__head">
+                        <tr>
+                          <th class="text-center">State</th>
+                          <th class="text-center">Confirmed Cases</th>
+                          <th class="text-center">Cases on admission</th>
+                          <th class="text-center">Discharged</th>
+                          <th class="text-center">Deaths</th>
+                        </tr>
+                      </thead>
+
+                      <tbody class="list-view__body">
+                        {% for d in data.data.states %}
+                        <tr>
+                          <td class="text-center">{{d.state}}</td>
+                          <td class="text-center">{{d.confirmedCases}}</td>
+                          <td class="text-center">{{d.casesOnAdmission}}</td>
+                          <td class="text-center">{{d.discharged}}</td>
+                          <td class="text-center">{{d.death}}</td>
+                        </tr>
+                        {% endfor %}
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Footer Area -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Footer Area -->
+            <footer class="footer-area d-sm-flex justify-content-center align-items-center justify-content-between">
+              <!-- Copywrite Text -->
+              <div class="copywrite-text">
+                <p class="font-13">Created by <a href="#">Root Code</a></p>
+              </div>
+              <div class="fotter-icon text-center">
+                <p class="mb-0 font-13">2021 @cognetiks.com </p>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================
+    ********* Main Page Wrapper Area ***********
+    ======================================= -->
+
+  <!-- Plugins js -->
+  <script src="{% static "js/jquery.min.js"%}"></script>
+  <script src="{% static "js/popper.min.html"%}"></script>
+  <script src="{% static "js/bootstrap.min.js"%}"></script>
+  <script src="{% static "js/bundle.js"%}"></script>
+  <script src="{% static "js/default-assets/setting.js"%}"></script>
+  <script src="{% static "js/default-assets/date-time.js"%}"></script>
+
+  <!-- Active JS -->
+  <script src="{% static "js/default-assets/active.js"%}"></script>
+
+  <!-- Inject JS -->
+  <script src="{% static "js/default-assets/apexchart.min.js"%}"></script>
+  <script src="{% static "js/default-assets/dashboard-active.js"%}"></script>
+  <script src="{% static "js/script.js"%}"></script>
+  <script src="{% static "js/default-assets/jquery.jConveyorTicker.min.js"%}"></script>
+  <script src="{% static "assets/js/select2.full.min.js"%}"></script>
+  <script src="{% static "assets/js/datatables.min.js"%}"></script>
+  <script src="{% static "assets/js/jquery.vmap.min.js"%}"></script>
+  <script src="{% static "assets/js/jquery.vmap.world.js"%}"></script>
+
+  <!--=== APP Js ===-->
+  <script src="{% static "assets/js/app.js"%}"></script>
+  <!--=== Active Js ===-->
+  <script src="{% static "assets/js/active.js"%}"></script>
+
+
+  <script>
+    $(function() {
+      $('.js-conveyor-1').jConveyorTicker();
+    });
+  </script>
+
+</body>
+
+</html>
